@@ -34,7 +34,7 @@ A modern, responsive web application for reporting and tracking civic issues in 
 - **Report Issue**: Comprehensive form for reporting civic issues
 - **Track Issues**: Search and filter reported issues with detailed status
 - **Admin Dashboard**: Administrative interface for managing issues
-- **404 Page**: Custom not found page with navigation options
+
 
 ### Components
 - **Header**: Responsive navigation with mobile menu
@@ -72,12 +72,36 @@ cd SIH
 npm install
 ```
 
-3. Start the development server:
+3. Set up Google Maps API (Optional):
+```bash
+# Copy the environment file
+cp .env.example .env
+
+# Edit .env and add your Google Maps API key
+# VITE_GOOGLE_MAPS_API_KEY=your_api_key_here
+```
+
+4. Start the development server:
 ```bash
 npm run dev
 ```
 
-4. Open your browser and navigate to `http://localhost:5173`
+5. Open your browser and navigate to `http://localhost:5173`
+
+### Google Maps Setup (Optional)
+
+To enable the interactive map feature in the Report Issue page:
+
+1. Go to [Google Cloud Console](https://console.cloud.google.com/)
+2. Create a new project or select an existing one
+3. Enable the following APIs:
+   - Maps JavaScript API
+   - Places API (optional, for enhanced features)
+4. Create credentials (API Key)
+5. Restrict the API key to your domain for security
+6. Add the API key to your `.env` file as `VITE_GOOGLE_MAPS_API_KEY`
+
+**Note**: The app works perfectly without Google Maps API - it will show a fallback interface that still allows GPS location detection and manual coordinate entry.
 
 ### Build for Production
 
