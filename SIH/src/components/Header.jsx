@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Menu, X, MapPin } from "lucide-react";
+import logo from "../assets/logo.webp"
+import applogof from "../assets/applogof.jpg"
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -15,14 +17,25 @@ const Header = () => {
           {/* Increased height for larger screens */}
           <Link
             to="/"
-            className="flex items-center space-x-3 text-white hover:text-blue-100 transition-colors duration-300 group"
-          >
-            <MapPin className="h-9 w-9 group-hover:scale-110 transition-transform duration-300" />
-            {/* Slightly larger icon with hover scale effect */}
+            className="flex items-center space-x-3 text-white hover:text-blue-100 transition-colors duration-300 group">
+           {/* Logo Image */}
+            <img
+              src={logo} 
+              alt="Civic Connect Logo"
+              className="h-20 w-20 rounded-full object-cover group-hover:scale-110 transition-transform duration-300"
+            />
+
+           {/* Logo Image */}
+            <img
+              src={applogof} 
+              alt="Civic Connect Logo"
+              className="h-20 w-20 rounded-full object-cover group-hover:scale-110 transition-transform duration-300"
+            />
+
+            {/* Logo Text */}
             <span className="text-2xl font-extrabold tracking-tight">
-              CivicReport
+              Civic-Connect
             </span>
-            {/* Bolder, larger text with tighter tracking */}
           </Link>
 
           {/* Desktop Navigation */}

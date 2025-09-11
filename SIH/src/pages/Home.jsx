@@ -42,13 +42,15 @@ const Home = () => {
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-blue-600 via-purple-600 to-indigo-700 text-white overflow-hidden">
-        <div className="absolute inset-0 bg-black opacity-20"></div>
+     <section 
+      className="relative bg-gradient-to-br from-blue-600 via-purple-600 to-indigo-700 text-white overflow-hidden bg-cover bg-center bg-blend-multiply"
+      style={{ backgroundImage: "url('https://dcist.com/wp-content/uploads/sites/3/2021/06/E3IjJBVWYAA3fgv.jpg')" }}
+>
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 lg:py-32">
           <div className="text-center">
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-tight mb-6">
               Report Civic Issues
-              <span className="block text-blue-200">Make a Difference</span>
+              <span className="block text-black">Make a Difference</span>
             </h1>
             <p className="text-xl lg:text-2xl mb-10 opacity-90 max-w-3xl mx-auto leading-relaxed">
               Help improve your community by reporting potholes, broken streetlights, 
@@ -65,8 +67,8 @@ const Home = () => {
               </Link>
               <Link 
                 to="/track" 
-                className="group bg-transparent border-2 border-white text-white px-8 py-4 rounded-xl font-semibold text-lg flex items-center gap-3 hover:bg-white hover:text-blue-600 transform hover:-translate-y-1 transition-all duration-300"
-              >
+                className="group bg-transparent border-2 border-white text-white px-8 py-4 rounded-xl font-semibold text-lg flex items-center gap-3 hover:bg-white hover:text-blue-600 transform hover:-translate-y-1 transition-all duration-300">
+                  
                 <MapPin className="h-5 w-5" />
                 Track Issues
               </Link>

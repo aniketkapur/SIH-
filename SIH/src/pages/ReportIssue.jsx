@@ -1,5 +1,6 @@
 import React, { useState, useRef } from 'react';
 import { Camera, MapPin, Mic, MicOff, Send, X, AlertCircle } from 'lucide-react';
+import GoogleMap from '../components/GoogleMap';
 
 const ReportIssue = () => {
   const [formData, setFormData] = useState({
@@ -14,6 +15,7 @@ const ReportIssue = () => {
   const [currentLocation, setCurrentLocation] = useState(null);
   const [locationLoading, setLocationLoading] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [mapLocation, setMapLocation] = useState(null);
   const fileInputRef = useRef(null);
 
   const categories = [
@@ -56,7 +58,9 @@ const ReportIssue = () => {
       navigator.geolocation.getCurrentPosition(
         (position) => {
           const { latitude, longitude } = position.coords;
-          setCurrentLocation({ latitude, longitude });
+          const location = { lat: latitude, lng: longitude };
+          setCurrentLocation(location);
+          setMapLocation(location);
           setFormData(prev => ({
             ...prev,
             location: `${latitude.toFixed(6)}, ${longitude.toFixed(6)}`
@@ -72,6 +76,14 @@ const ReportIssue = () => {
     } else {
       alert('Geolocation is not supported by this browser.');
     }
+  };
+
+  const handleMapLocationSelect = (location) => {
+    setMapLocation(location);
+    setFormData(prev => ({
+      ...prev,
+      location: `${location.lat.toFixed(6)}, ${location.lng.toFixed(6)}`
+    }));
   };
 
   const toggleRecording = () => {
@@ -200,6 +212,36 @@ const ReportIssue = () => {
                     )}
                     {locationLoading ? 'Getting...' : 'GPS'}
                   </button>
+                </div>
+              </div>
+
+              {/* Google Map Section */}
+              <div className="space-y-4">
+                <div className="flex items-center justify-between">
+                  <label className="block text-sm font-semibold text-gray-700">
+                    Select Location on Map
+                  </label>
+                  <span className="text-xs text-gray-500 bg-gray-100 px-3 py-1 rounded-full">
+                    Click on map to select precise location
+                  </span>
+                </div>
+                <div className="bg-gradient-to-br from-blue-50 to-indigo-50 p-6 rounded-xl border-2 border-blue-200">
+                  <GoogleMap
+                    onLocationSelect={handleMapLocationSelect}
+                    selectedLocation={mapLocation}
+                    className="w-full"
+                  />
+                  <div className="mt-4 p-4 bg-white rounded-lg border border-blue-200">
+                    <div className="flex items-center gap-2 text-sm text-gray-600">
+                      <MapPin className="h-4 w-4 text-blue-600" />
+                      <span className="font-medium">Instructions:</span>
+                    </div>
+                    <ul className="mt-2 text-sm text-gray-600 space-y-1">
+                      <li>• Click anywhere on the map to select the issue location</li>
+                      <li>• Use the crosshair button to get your current location</li>
+                      <li>• The selected coordinates will automatically update the location field</li>
+                    </ul>
+                  </div>
                 </div>
               </div>
 
