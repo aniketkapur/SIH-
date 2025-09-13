@@ -1,6 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Camera, MapPin, Bell, BarChart3, Users, Clock, CheckCircle, ArrowRight } from 'lucide-react';
+import potholes from "../assets/potholes.jpg"
+import Pages from "../components/pages.jsx"
 
 const Home = () => {
   const features = [
@@ -68,7 +70,7 @@ const Home = () => {
               <Link 
                 to="/track" 
                 className="group bg-transparent border-2 border-white text-white px-8 py-4 rounded-xl font-semibold text-lg flex items-center gap-3 hover:bg-white hover:text-blue-600 transform hover:-translate-y-1 transition-all duration-300">
-                  
+
                 <MapPin className="h-5 w-5" />
                 Track Issues
               </Link>
@@ -76,7 +78,8 @@ const Home = () => {
           </div>
         </div>
       </section>
-
+      
+    
       {/* Stats Section */}
       <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -97,6 +100,25 @@ const Home = () => {
           </div>
         </div>
       </section>
+        
+       
+  {/* Features Section */}
+      <section className="py-20 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
+              Common Public issues
+            </h2>
+            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+              Our platform helps in address these issues.
+            </p>
+          </div>
+
+          <Pages />
+
+        </div>
+      </section>
+
 
       {/* Features Section */}
       <section className="py-20 bg-gray-50">

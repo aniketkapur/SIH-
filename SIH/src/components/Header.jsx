@@ -11,34 +11,30 @@ const Header = () => {
 
   return (
     <header className="bg-gradient-to-r from-blue-700 via-indigo-600 to-purple-700 text-white shadow-xl sticky top-0 z-50 transition-all duration-300">
-      {/* Enhanced gradient with deeper colors and shadow for depth */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16 lg:h-20">
-          {/* Increased height for larger screens */}
           <Link
             to="/"
             className="flex items-center space-x-3 text-white hover:text-blue-100 transition-colors duration-300 group">
-           {/* Logo Image */}
+           
             <img
               src={logo} 
-              alt="Civic Connect Logo"
+              alt="Government of india"
               className="h-20 w-20 rounded-full object-cover group-hover:scale-110 transition-transform duration-300"
             />
-
-           {/* Logo Image */}
-            <img
+           
+            {/* <img
               src={applogof} 
               alt="Civic Connect Logo"
               className="h-20 w-20 rounded-full object-cover group-hover:scale-110 transition-transform duration-300"
-            />
+            /> */}
 
-            {/* Logo Text */}
             <span className="text-2xl font-extrabold tracking-tight">
-              Civic-Connect
+              Seva-Link
             </span>
           </Link>
 
-          {/* Desktop Navigation */}
+          
           <nav className="hidden md:flex space-x-10">
             <Link
               to="/"
@@ -49,11 +45,11 @@ const Header = () => {
               }`}
             >
               Home
-              {/* Underline effect for active link */}
+             
               <span
                 className={`absolute bottom-0 left-0 w-full h-0.5 bg-white scale-x-0 transition-transform duration-300 origin-left ${
                   isActive("/") ? "scale-x-100" : "group-hover:scale-x-100"
-                }`}
+}`}
               />
             </Link>
             <Link
@@ -114,15 +110,12 @@ const Header = () => {
             ) : (
               <Menu className="h-7 w-7" />
             )}
-            {/* Larger icon with spin animation on close */}
           </button>
         </div>
       </div>
 
-      {/* Mobile Navigation */}
       {isMenuOpen && (
         <div className="md:hidden bg-blue-800/95 backdrop-blur-sm animate-slide-down">
-          {/* Added backdrop blur and slide-down animation */}
           <div className="px-4 pt-4 pb-6 space-y-2">
             <Link
               to="/"
