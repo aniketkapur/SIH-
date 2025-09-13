@@ -10,7 +10,7 @@ const Footer = () => {
           <div className="lg:col-span-2">
             <div className="flex items-center space-x-3 mb-6">
               <MapPin className="h-8 w-8 text-blue-400" />
-              <span className="text-2xl font-bold">Civic-Connect</span>
+              <span className="text-2xl font-bold">Seva-Link</span>
             </div>
             <p className="text-gray-300 text-lg leading-relaxed mb-6 max-w-md">
               Empowering citizens to report civic issues and help build better communities. 
@@ -83,7 +83,7 @@ const Footer = () => {
         <div className="border-t border-gray-700 mt-12 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <div className="text-gray-400 text-sm mb-4 md:mb-0">
-              © 2025 Civic-Connect.Built for Smart India Hackathon 2025.
+              © 2025 Seva-Link.Built for Smart India Hackathon 2025.
               <img src="aicte.png" alt="Civic Connect Logo" className="h-20 w-20 rounded-full object-cover group-hover:scale-110 transition-transform duration-300"/>
             </div>
             <div className="flex space-x-6 text-sm">
